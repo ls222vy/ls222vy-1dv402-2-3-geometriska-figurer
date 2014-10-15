@@ -12,7 +12,11 @@ namespace _1dv402_2_3_geometriska_figurer
        public double Area { get; }
        public double Perimeter { get; }
        
-       public override Area () 
+       public Ellipse (double length, double width)
+         :base (length, width) 
+       { 
+         
+       }
        
    }
 }

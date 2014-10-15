@@ -13,9 +13,9 @@ namespace _1dv402_2_3_geometriska_figurer
       private double _width;
       
       // Egenskaper         
-      public double Area { get; }
-      public double Perimeter { get; }
-      public double Length 
+      public abstract double Area { get; }
+      public abstract double Perimeter { get; }
+      public  double Length 
       {
           get { return _length; }
           set
