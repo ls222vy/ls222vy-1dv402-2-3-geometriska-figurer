@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1dv402_2_3_geometriska_figurer
 {
-   public abstract class Ellipse: Shape
+   public class Ellipse: Shape
     {
         //Egenskaper
        public override double Area // räknar ut area

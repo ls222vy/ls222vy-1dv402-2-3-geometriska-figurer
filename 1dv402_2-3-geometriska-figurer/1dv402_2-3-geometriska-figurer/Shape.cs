@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1dv402_2_3_geometriska_figurer
 {
-  public abstract class Shape// ingen möjlighet att deklarera eller intiansiera objekt typen shape
+  public abstract class Shape// ingen möjlighet att deklarera eller intiansiera objekt typen Shape
     {
       // Deklarera fält
       private double _length;
@@ -15,7 +15,8 @@ namespace _1dv402_2_3_geometriska_figurer
       // Egenskaper         
       public abstract double Area { get; }
       public abstract double Perimeter { get; }
-      public  double Length 
+     
+      public  double Length // Egenskap Length Kapslar in fältet _length för att kunna nå den senare.
       {
           get { return _length; }
           set
@@ -40,14 +41,14 @@ namespace _1dv402_2_3_geometriska_figurer
            }
         }
              
-       protected Shape (double length, double width)
+       protected Shape (double length, double width) // Konstraktorn som har parameter
        {
                 Length = length;
                 Width = width; 
         }
        public override string ToString()
        {
-           return string.Format("längd   : {0}\nBredd   :{1}\nOmkrets   :{2}Area   :", Length, Width, Perimeter, Area);
+           return string.Format("Längd    : {0}\nBredd    : {1}\nOmkrets  : {2}\nArea     : {3}\n=========================", Length, Width, Perimeter, Area);
            
        }
      }

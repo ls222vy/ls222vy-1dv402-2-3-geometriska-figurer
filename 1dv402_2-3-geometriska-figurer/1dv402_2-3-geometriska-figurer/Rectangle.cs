@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1dv402_2_3_geometriska_figurer
 {
-   public abstract class Rectangle: Shape
+   public  class Rectangle: Shape
     {
         //Egenskaper
           public override double Area // Räkna ut Area
