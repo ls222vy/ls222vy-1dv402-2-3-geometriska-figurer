@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace _1dv402_2_3_geometriska_figurer
       public abstract double Area { get; }
       public abstract double Perimeter { get; }
      
-      public  double Length // Egenskap Length Kapslar in fältet _length för att kunna nå den senare.
+      public  double Length // Egenskap Length Kapslar in fältet _length för att kunna nå den 
       {
           get { return _length; }
           set
@@ -48,7 +49,7 @@ namespace _1dv402_2_3_geometriska_figurer
         }
        public override string ToString()
        {
-           return string.Format("Längd    : {0}\nBredd    : {1}\nOmkrets  : {2}\nArea     : {3}\n=========================", Length, Width, Perimeter, Area);
+           return string.Format("Längd    : {0}\nBredd    : {1}\nOmkrets  : {2:f1}\nArea     : {3:f1}\n=========================", Length, Width, Perimeter, Area);
            
        }
      }

@@ -11,6 +11,8 @@ namespace _1dv402_2_3_geometriska_figurer
     {
         static void Main(string[] args)
         {
+            Shape shape;
+
             do
             {
                 ViewMenu();
@@ -21,29 +23,31 @@ namespace _1dv402_2_3_geometriska_figurer
                         return;
 
                     case "1":
-                        ViewShapeDetail(CreateShape(ShapeType.Ellipse));
+                        shape = CreateShape(ShapeType.Ellipse);
+                        ViewShapeDetail(shape);
                         break;
 
                     case "2":
-                        ViewShapeDetail(CreateShape(ShapeType.Rectangle));
+                        shape = CreateShape(ShapeType.Rectangle);
+                        ViewShapeDetail(shape);
                         break;
 
                     default:
                         ViewErorrMessage("Fel! Ange ett nummer mellan 0 och 2");
                         break;
                 }
-                    Console.WriteLine();
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("Tryck tangent för att fortsätta");
+                Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Tryck tangent för att fortsätta");
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-          
+
         }
         private static Shape CreateShape(ShapeType shapeType)// Läsa en figurs längd och bredd
         {
             double width;
             double length;
-           
+
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("=============================");
@@ -54,12 +58,12 @@ namespace _1dv402_2_3_geometriska_figurer
             Console.WriteLine();
             Console.ResetColor();
 
-             width  = ReadDoubleGreaterThanZero("Skriv in bredden  " );// ReadDoubleGreaterThanZero anropar string
-             length = ReadDoubleGreaterThanZero("Skriv in längden  " );
+            width = ReadDoubleGreaterThanZero("Skriv in bredden  ");// ReadDoubleGreaterThanZero anropar string
+            length = ReadDoubleGreaterThanZero("Skriv in längden  ");
 
-            // För att kunna växla eller vilja vilken shape man vill visa använd swicth satsen
+            // För att kunna växla eller vilja vilken shape man vill visa, använd swicth satsen
 
-            switch (shapeType) 
+            switch (shapeType)
             {
                 case ShapeType.Rectangle:
                     return new Rectangle(length, width);
@@ -72,30 +76,30 @@ namespace _1dv402_2_3_geometriska_figurer
             }
 
         }
-            //Metoden ReadDoubleGreaterThanZero validerar att värdet för läng/bredd
-            //är större en noll.
-        private static double ReadDoubleGreaterThanZero(string prompt) 
+        //Metoden ReadDoubleGreaterThanZero validerar att värdet för läng/bredd
+        //är större en noll.
+        private static double ReadDoubleGreaterThanZero(string prompt)
+        {
+            double input;
+
+            do
             {
-                double input;
-
-                do
+                Console.Write(prompt);
+                if (double.TryParse(Console.ReadLine(), out input) && input > 0)
                 {
-                    Console.Write(prompt);
-                    if (double.TryParse(Console.ReadLine(), out input) && input > 0)
-                    {
-                        return input;
-                    }
-                    ViewErrorMessage("Fel! Ange ett flyttal större än 0.");
+                    return input;
+                }
+                ViewErrorMessage("Fel! Ange ett flyttal större än 0.");
 
-                } while (true);
-                
-            }
+            } while (true);
 
-        private static void ViewErrorMessage(string p)
+        }
+
+        private static void ViewErrorMessage(string prompt)
         {
             throw new NotImplementedException();
         }
-        private static void ViewMenu() 
+        private static void ViewMenu()
         {
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -113,7 +117,7 @@ namespace _1dv402_2_3_geometriska_figurer
             Console.WriteLine();
             Console.WriteLine("Ange menyval 0-2: ");
         }
-        private static void ViewShapeDetail(Shape shape) 
+        private static void ViewShapeDetail(Shape shape)
         {
             Console.WriteLine();
             Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -127,20 +131,20 @@ namespace _1dv402_2_3_geometriska_figurer
             Console.WriteLine();
 
             Console.WriteLine(shape);
-        
+
         }
-            //fel meddelande
+        //fel meddelande
         private static void ViewErorrMessage(string prompt)
         {
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(prompt);
             Console.ResetColor();
-        
+
         }
     }
 
 
- }
-    
+}
+
 
